@@ -1,16 +1,11 @@
-import { Counter } from "./Counter.js";
 
 export default function Page() {
   return (
-    <>
-      <h1>My Vike app</h1>
-      <p>This page is:</p>
-      <ul>
-        <li>Rendered to HTML.</li>
-        <li>
-          Interactive. <Counter />
-        </li>
-      </ul>
-    </>
+    <main>
+      <h1>Home Page</h1>
+      <p>Welcome to the Vike SSR learning project.</p>
+
+      <a href="/about">Go to About Page</a>
+    </main>
   );
 }
