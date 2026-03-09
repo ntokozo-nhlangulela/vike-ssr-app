@@ -8,7 +8,7 @@ export default function Page() {
     <>
       <h1>Docs Page</h1>
       <p>Catch-All Routes Example</p>
-      <pre>{JSON.stringify(slug)}</pre>
+      <p>Route or Slug caught: <pre>{JSON.stringify(slug)}</pre></p>
       
     </>
   )
