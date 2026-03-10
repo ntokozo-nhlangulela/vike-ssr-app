@@ -1,17 +1,21 @@
+
 import { usePageContext } from 'vike-react/usePageContext';
+import type { ProductData } from './+data';
 
 export default function Page() {
-  const pageContext = usePageContext();
-  const { id } = pageContext.routeParams;
+  const pageContext = usePageContext()
+
+  const { product } = pageContext.data as ProductData
+
+  if (!product) {
+    return <h1>Product not found</h1>
+  }
 
   return (
-    <main style={{ padding: '2rem', fontFamily: 'sans-serif' }}>
-      <h1>Route String Example</h1>
-      <p>
-        URL Parameter <strong>ID</strong>: {id}
-      </p>
-      
-     
-    </main>
-  );
+    <div style={{ padding: '20px' }}>
+      <h1>{product.name}</h1>
+      <p>Price: R{product.price}</p>
+      <small>Product ID: {product.id}</small>
+    </div>
+  )
 }
