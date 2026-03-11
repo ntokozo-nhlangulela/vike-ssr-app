@@ -8,7 +8,7 @@ export interface ProductData {
   }[];
 }
 
-export async function data(_: PageContextServer): Promise<ProductData> {
+export async function data(_pageContext: PageContextServer): Promise<ProductData> {
 
   const response = await fetch("http://localhost:3000/api/products");
 
