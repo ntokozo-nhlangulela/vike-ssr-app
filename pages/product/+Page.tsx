@@ -1,19 +1,15 @@
-import { useEffect, useState } from "react";
+import { useData } from "vike-react/useData";
+import type { ProductData } from "./+data";
 
 export default function Page() {
 
-  const [products, setProducts] = useState([]);
-
-  useEffect(() => {
-    fetch("/api/products")
-      .then(res => res.json())
-      .then(setProducts);
-  }, []);
+  const { products } = useData<ProductData>();
 
   return (
     <div>
-      <h1>Products</h1>
-      {products.map((p:any) => (
+      <h1>Products List</h1>
+
+      {products.map((p) => (
         <div key={p.id}>
           {p.name} - R{p.price}
         </div>
