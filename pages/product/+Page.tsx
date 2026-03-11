@@ -1,21 +1,24 @@
-
-import { usePageContext } from 'vike-react/usePageContext';
-import type { ProductData } from './+data';
+import { useEffect, useState } from "react";
 
 export default function Page() {
-  const pageContext = usePageContext()
 
-  const { product } = pageContext.data as ProductData
+  const [products, setProducts] = useState([]);
 
-  if (!product) {
-    return <h1>Product not found</h1>
-  }
+  useEffect(() => {
+    fetch("/api/products")
+      .then(res => res.json())
+      .then(setProducts);
+  }, []);
 
   return (
-    <div style={{ padding: '20px' }}>
-      <h1>{product.name}</h1>
-      <p>Price: R{product.price}</p>
-      <small>Product ID: {product.id}</small>
+    <div>
+      <h1>Products</h1>
+      {products.map((p:any) => (
+        <div key={p.id}>
+          {p.name} - R{p.price}
+        </div>
+      ))}
+
     </div>
-  )
+  );
 }
