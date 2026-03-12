@@ -11,6 +11,8 @@ export default function Page() {
         <br/>
         <a href="/products">Product</a>
         <br/>
+        <a href="/client-products">Client Products</a>
+        <br/>
         <a href="/docs/getting-started">Docs</a>
     </main>
   );
