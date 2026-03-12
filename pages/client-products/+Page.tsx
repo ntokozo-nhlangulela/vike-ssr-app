@@ -1,10 +1,5 @@
 import { useEffect, useState } from "react";
-
-type Product = {
-  id: string;
-  name: string;
-  price: number;
-};
+import { Product } from "../product/+data";
 
 export default function Page() {
 

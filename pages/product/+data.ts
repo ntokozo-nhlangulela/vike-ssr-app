@@ -1,11 +1,13 @@
 import type { PageContextServer } from 'vike/types';
 
+export type Product = {
+  id: string;
+  name: string;
+  price: number;
+};
+
 export interface ProductData {
-  products: {
-    id: string;
-    name: string;
-    price: number;
-  }[];
+  products: Product[];
 }
 
 export async function data(_pageContext: PageContextServer): Promise<ProductData> {
