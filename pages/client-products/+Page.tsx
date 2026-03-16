@@ -17,7 +17,7 @@ export default function Page() {
           throw new Error("Failed to fetch products");
         }
 
-        const data = await response.json();
+        const data: Product[] = await response.json();
 
         setProducts(data);
       } catch (err: unknown) {
