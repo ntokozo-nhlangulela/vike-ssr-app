@@ -2,9 +2,11 @@
   "scripts": {
     "dev": "vike dev",
     "build": "vike build",
-    "preview": "vike build && vike preview"
+    "preview": "vike build && vike preview",
+    "api": "node --loader ts-node/esm server/index.ts"
   },
   "dependencies": {
+    "cors": "^2.8.6",
     "express": "^5.2.1",
     "react": "^19.2.4",
     "react-dom": "^19.2.4",
@@ -12,10 +14,13 @@
     "vike-react": "^0.6.20"
   },
   "devDependencies": {
+    "@types/cors": "^2.8.19",
     "@types/express": "^5.0.6",
+    "@types/node": "^25.5.0",
     "@types/react": "^19.2.14",
     "@types/react-dom": "^19.2.3",
     "@vitejs/plugin-react": "^5.1.4",
+    "ts-node": "^10.9.2",
     "typescript": "^5.9.3",
     "vite": "^7.3.1"
   },
