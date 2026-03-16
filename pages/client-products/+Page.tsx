@@ -11,7 +11,7 @@ export default function Page() {
 
     async function loadProducts() {
       try {
-        const response = await fetch("/api/products");
+        const response = await fetch("http://localhost:4000/api/products");
 
         if (!response.ok) {
           throw new Error("Failed to fetch products");
