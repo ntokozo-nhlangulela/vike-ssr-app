@@ -1,10 +1,12 @@
 
+export type Product = {
+  id: string;
+  name: string;
+  price: number;
+};
+
 export interface ProductData {
-  products: {
-    id: string;
-    name: string;
-    price: number;
-  }[];
+  products: Product[];
 }
 
 export async function data(): Promise<ProductData> {
