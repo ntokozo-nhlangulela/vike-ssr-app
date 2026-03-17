@@ -9,9 +9,7 @@ export default function Page() {
         <br/>
         <a href="/users">Users</a>
         <br/>
-        <a href="/products/1">Product 1</a>
-        <br />
-        <a href="/products/2">Product 2</a>
+        <a href="/products">Product</a>
         <br/>
         <a href="/docs/getting-started">Docs</a>
     </main>

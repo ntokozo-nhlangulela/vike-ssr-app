@@ -1,23 +1,17 @@
-import type { PageContextServer } from 'vike/types';
 
 export interface ProductData {
-  product: {
+  products: {
     id: string;
     name: string;
     price: number;
-  } | undefined
+  }[];
 }
 
-export async function data(pageContext: PageContextServer): Promise<ProductData> {
-  const { id } = pageContext.routeParams;
+export async function data(): Promise<ProductData> {
 
-  const products = [
-    { id: "1", name: "Laptop", price: 10000 },
-    { id: "2", name: "Phone", price: 5000 },
-    { id: "3", name: "Keyboard", price: 100 }
-  ];
+  const response = await fetch("http://localhost:4000/api/products");
 
-  const product = products.find(p => p.id === id);
+  const products = await response.json();
 
-  return { product };
+  return { products };
 }
