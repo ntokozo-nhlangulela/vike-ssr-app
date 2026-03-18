@@ -17,7 +17,6 @@ app.get("/api/products", (req, res) => {
 });
 
 app.get("/api/products/:id", (req, res) => {
-
   const product = products.find(p => p.id === req.params.id);
 
   if (!product) {
@@ -25,4 +24,10 @@ app.get("/api/products/:id", (req, res) => {
   }
 
   res.json(product);
+});
+
+const PORT = 4000;
+
+app.listen(PORT, () => {
+  console.log(`API running on http://localhost:${PORT}`);
 });
