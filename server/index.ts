@@ -1,34 +1,33 @@
-import { PrismaClient } from "@prisma/client";
 import cors from "cors";
 import express from "express";
 
 const app = express();
-const prisma = new PrismaClient();
 
 app.use(cors());
 app.use(express.json());
 
-app.get("/api/products", async (req, res) => {
+const products = [
+  { id: "1", name: "Laptop", price: 10000 },
+  { id: "2", name: "Phone", price: 5000 },
+  { id: "3", name: "Keyboard", price: 100 }
+];
 
-  const products = await prisma.product.findMany();
+app.get("/api/products", (req, res) => {
   res.json(products);
 });
 
-
-app.get("/api/products/:id", async (req, res) => {
-  
-  const product = await prisma.product.findUnique({
-    where: { id: req.params.id }
-  });
+app.get("/api/products/:id", (req, res) => {
+  const product = products.find(p => p.id === req.params.id);
 
   if (!product) {
     return res.status(404).json({ message: "Product not found" });
   }
-res.json(product);
 
+  res.json(product);
 });
 
 const PORT = 4000;
+
 app.listen(PORT, () => {
   console.log(`API running on http://localhost:${PORT}`);
 });
