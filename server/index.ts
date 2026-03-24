@@ -1,9 +1,7 @@
-import { PrismaClient } from "@prisma/client";
 import cors from "cors";
 import express from "express";
 
 const app = express();
-const prisma = new PrismaClient();
 
 app.use(cors());
 app.use(express.json());
@@ -37,6 +35,7 @@ app.get("/api/products/:id", async (req, res) => {
 });
 
 const PORT = 4000;
+
 app.listen(PORT, () => {
   console.log(`API running on http://localhost:${PORT}`);
 });
